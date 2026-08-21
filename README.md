@@ -3,7 +3,7 @@
 
 TI-BASIC programs for the **TI-84 Evo & CE** that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings.
 
-The repository contains two standalone programs:
+The repository contains two standalone programs for both TI-84 Evo and CE calculators:
 
 * **`FACTOR`** — factors an expanded polynomial expression.
 * **`EXPAND`** — expands products and powers of polynomial factors.
