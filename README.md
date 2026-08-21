@@ -72,7 +72,7 @@ The `FACTOR` program:
 * Returns the remaining polynomial factor when it cannot be reduced further.
 * Produces a computer algebra formatted result string.
 
-[How to use `FACTOR` program](#how-to-use-factor-examples)
+[How to use `FACTOR` program](#how-to-use-factor)
 
 ---
 
@@ -110,7 +110,7 @@ The program:
 * Combines like terms.
 * Returns the expanded polynomial as a computer algebra formatted string.
 
-[How to use `EXPAND` program](#how-to-use-expand-examples)
+[How to use `EXPAND` program](#how-to-use-expand)
 
 ---
 
@@ -294,7 +294,7 @@ The resulting string is also left in `Ans`.
 
 ---
 
-# How To Use `FACTOR` Examples
+# `FACTOR` Examples
 
 ## Example 1 — Simple Difference of Squares
 
@@ -400,7 +400,7 @@ The order of equivalent factors may vary without changing the mathematical resul
 
 ---
 
-# How to Use `EXPAND` Examples
+# How to Use `EXPAND`
 
 Enter the factored polynomial as a quoted string:
 
