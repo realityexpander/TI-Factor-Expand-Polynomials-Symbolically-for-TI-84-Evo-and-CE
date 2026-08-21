@@ -1,4 +1,4 @@
-# Polynomial `FACTOR` and `EXPAND` for TI-84 Evo & CE/CE-Plus 
+# `FACTOR` and `EXPAND` Polynomial Symbolically for TI-84 Evo & CE/CE-Plus 
 
 TI-BASIC programs for the **TI-84 Evo & CE** that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings.
 
