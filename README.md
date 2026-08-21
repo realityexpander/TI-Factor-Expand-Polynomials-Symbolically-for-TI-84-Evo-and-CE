@@ -4,7 +4,7 @@
 <img width="324" height="244" alt="ticevo_screenshot_20260821_172345" src="https://github.com/user-attachments/assets/5ccffeae-8941-48cf-895b-c432e428c3fd" />
 
 
-TI-BASIC programs for the **TI-84 Evo & CE** that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings.
+TI-BASIC calculator programs that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings. Useful for performing coursework in college level algebra, pre-calculus, calculus 1 & 2. Provides some CAS level functionality for non-CAS calculators that are allowed to be used in these courses to check your work.
 
 The repository contains two standalone programs for both TI-84 Evo and CE calculators:
 
