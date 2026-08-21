@@ -13,11 +13,34 @@ Both programs receive their input as a **string stored in `Ans`** and return the
 
 These programs are intended to provide convenient polynomial manipulation on the TI-84 Evo without requiring a CAS calculator.
 
----
+<h2>To Install on TI-84 Evo:</h2>
 
-# General Functionality
+Online Calculator (login realityexpander)
+  - [https://ti84evo.ti.com/84evo/en/main-view](https://ti84evo.ti.com/84evo/en/main-view)
+  - Use "Send Files" - "send to calculator" to send a program file on computer to a the emulator calculator.
+  - Use "Send Files" - "send to computer" to copy a program from the emulator calculator to your computer files.
 
-## `FACTOR`
+Connect to Physical Calculator
+  - [https://connectevo.ti.com/ticevo/en/main-view](https://connectevo.ti.com/ticevo/en/main-view)
+  - Use "send to calculator" to send a program file to a physically connected calculator.
+  - Use "send to computer" to copy a program from the physical connected calculator to your computer files.
+
+<h2>To Install on TI-84 CE Plus:</h2>
+
+Online Calculator (login realityexpander)
+  - [https://ti84evo.ti.com/84evo/en/main-view](https://84plusce.ti.com/8eu/main-view)
+
+Connect to Physical Calculator
+  - Use "TI Connect CE" App
+  - Use "send to calculator" to send a program file to a physically connected calculator.
+  - Use "send to computer" to copy a program from the physical connected calculator to your computer files.
+
+  - Web-based Alternative to "TI Connect CE"
+    - https://ticalc.link/  
+
+# `EXPAND` and `FACTOR` General Program Functionality
+
+## `FACTOR` Program
 
 `FACTOR` accepts an expanded polynomial such as:
 
@@ -39,7 +62,7 @@ becomes:
 
 $$3(2x-7)(x+3)(x+6)$$
 
-The program:
+The `FACTOR` program:
 
 * Parses a polynomial stored as a string.
 * Converts the expression into polynomial coefficients.
@@ -51,13 +74,13 @@ The program:
 * Returns the remaining polynomial factor when it cannot be reduced further.
 * Produces a computer algebra formatted result string.
 
-[How to use `FACTOR`](#how-to-use-factor)
+[How to use `FACTOR` program](#how-to-use-factor)
 
 ---
 
-## `EXPAND`
+## `EXPAND` Program
 
-`EXPAND` performs the reverse operation.
+`EXPAND` performs the reverse operation of `FACTOR`
 
 For example:
 
@@ -89,7 +112,7 @@ The program:
 * Combines like terms.
 * Returns the expanded polynomial as a computer algebra formatted string.
 
-[How to use `EXPAND`](# How to Use `EXPAND`)
+[How to use `EXPAND` program](#how-to-use-expand)
 
 ---
 
