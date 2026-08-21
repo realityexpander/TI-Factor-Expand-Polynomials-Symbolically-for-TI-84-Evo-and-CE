@@ -7,7 +7,7 @@ The repository contains two standalone programs:
 * **`FACTOR`** — factors an expanded polynomial expression.
 * **`EXPAND`** — expands products and powers of polynomial factors.
 
-Both programs receive their input as a **string stored in `Ans`** and return the result as a computer algebra formatted string.
+Both programs receive their input as a **standard computer algebra formatted string stored in `Ans`** and returns the result as a computer algebra formatted string in `Ans`.
 
 These programs are intended to provide convenient polynomial manipulation on the TI-84 Evo without requiring a CAS calculator.
 
