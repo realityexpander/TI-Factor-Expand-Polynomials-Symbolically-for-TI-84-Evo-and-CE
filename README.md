@@ -37,7 +37,7 @@ Connect to Physical Calculator
   - Web-based Alternative to "TI Connect CE"
     - https://ticalc.link/  
 
-# `EXPAND` and `FACTOR` General Program Functionality
+# General Program Functionality
 
 ## `FACTOR` Program
 
