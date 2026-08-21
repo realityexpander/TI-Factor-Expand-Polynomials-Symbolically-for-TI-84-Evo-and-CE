@@ -51,7 +51,7 @@ The program:
 * Returns the remaining polynomial factor when it cannot be reduced further.
 * Produces a computer algebra formatted result string.
 
-[How to use `FACTOR`](##-How-to-Use-FACTOR)
+[How to use `FACTOR`](#how-to-use-factor)
 
 ---
 
