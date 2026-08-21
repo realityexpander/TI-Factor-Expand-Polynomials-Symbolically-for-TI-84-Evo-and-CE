@@ -15,7 +15,7 @@ These programs are intended to provide convenient polynomial manipulation on the
 
 <h2>To Install on TI-84 Evo:</h2>
 
-Online Calculator (login realityexpander)
+Online Calculator
   - [https://ti84evo.ti.com/84evo/en/main-view](https://ti84evo.ti.com/84evo/en/main-view)
   - Use "Send Files" - "send to calculator" to send a program file on computer to a the emulator calculator.
   - Use "Send Files" - "send to computer" to copy a program from the emulator calculator to your computer files.
