@@ -1,1 +1,562 @@
 # TI-84-Evo-and-CE-Factor-Expand-Polynomials-Symbolically
+
+# Polynomial `FACTOR` and `EXPAND` for TI-84 Evo & CE/CE-Plus 
+
+TI-BASIC programs for the **TI-84 Evo & CE** that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings.
+
+The repository contains two standalone programs:
+
+* **`FACTOR`** — factors an expanded polynomial expression.
+* **`EXPAND`** — expands products and powers of polynomial factors.
+
+Both programs receive their input as a **string stored in `Ans`** and return the result as a computer algebra formatted string.
+
+These programs are intended to provide convenient polynomial manipulation on the TI-84 Evo without requiring a CAS calculator.
+
+---
+
+# General Functionality
+
+## `FACTOR`
+
+`FACTOR` accepts an expanded polynomial such as:
+
+```text
+6*X^3+33*X^2-81*X-378
+```
+
+and factors it into:
+
+```text
+3*(2*X-7)*(X+3)*(X+6)
+```
+
+Mathematically:
+
+$$6x^3+33x^2-81x-378$$
+
+becomes:
+
+$$3(2x-7)(x+3)(x+6)$$
+
+The program:
+
+* Parses a polynomial stored as a string.
+* Converts the expression into polynomial coefficients.
+* Extracts the greatest common integer factor of the coefficients.
+* Detects factors of (x).
+* Searches for integer roots.
+* Uses synthetic division to remove discovered factors.
+* Detects repeated factors.
+* Returns the remaining polynomial factor when it cannot be reduced further.
+* Produces a computer algebra formatted result string.
+
+[How to use `FACTOR`](# How to Use `FACTOR`)
+
+---
+
+## `EXPAND`
+
+`EXPAND` performs the reverse operation.
+
+For example:
+
+```text
+3*(2*X-7)*(X+3)*(X+6)
+```
+
+is expanded to:
+
+```text
+6*X^(3)+33*X^(2)-81*X^(1)-378
+```
+
+Mathematically:
+
+$$3(2x-7)(x+3)(x+6)$$
+
+becomes:
+
+$$6x^3+33x^2-81x-378$$
+
+The program:
+
+* Parses polynomial factors from a string.
+* Recognizes parenthesized factors.
+* Recognizes repeated factors such as `(X+2)^2`.
+* Converts each factor into a coefficient list.
+* Multiplies polynomials using coefficient convolution.
+* Combines like terms.
+* Returns the expanded polynomial as a computer algebra formatted string.
+
+[How to use `EXPAND`](# How to Use `EXPAND`)
+
+---
+
+# Intended Use
+
+These programs are designed for polynomial problems commonly encountered in:
+
+* Pre-Algebra
+* Algebra
+* College Algebra
+* Precalculus
+* Calculus I
+* Calculus II
+
+They are especially useful for checking algebra involved in:
+
+* Polynomial equations
+* Factoring
+* Expanding products
+* Simplifying expressions
+* Rational-function preparation
+* Limits
+* Derivatives
+* Integrals
+* Partial-fraction preparation
+
+The goal is **not** to reproduce a complete CAS system. Instead, the programs provide focused polynomial functionality appropriate for standard undergraduate mathematics coursework.
+
+---
+
+# Known Limitations
+
+These programs intentionally support a limited subset of computer algebra syntax.
+
+## `FACTOR` limitations
+
+`FACTOR` is intended primarily for **integer-coefficient polynomials and real algebraic factoring**.
+
+It does not attempt to return complex factors.
+
+For example, an irreducible factor such as:
+
+$$x^2+1$$
+
+is left as:
+
+```text
+X^(2)+1
+```
+
+rather than being converted into complex factors involving (i).
+
+The program is intended for the kinds of polynomial factors normally encountered in Algebra, Precalculus, Calculus I, and Calculus II coursework.
+
+Additional limitations:
+
+* One polynomial variable only: `X`
+* Integer polynomial exponents
+* Nonnegative exponents only
+* Intended primarily for integer coefficients
+* Does not function as a general-purpose symbolic algebra system
+* Does not factor expressions involving functions such as `sin`, `cos`, `ln`, or `sqrt`
+* Does not factor rational expressions containing polynomial denominators
+* Does not return complex roots
+* Does not attempt arbitrary symbolic radical factorization
+
+An expression that cannot be further factored using the supported methods is returned as a remaining polynomial factor.
+
+---
+
+## `EXPAND` limitations
+
+`EXPAND` is designed for ordinary polynomial products.
+
+Supported examples include:
+
+```text
+(X+2)*(X-3)
+```
+
+```text
+(X+2)^2
+```
+
+```text
+3*(2*X-7)*(X+3)*(X+6)
+```
+
+It is not intended to expand general symbolic expressions involving:
+
+```text
+sin(X)
+cos(X)
+ln(X)
+sqrt(X)
+1/(X+1)
+X^(-2)
+X^(1/2)
+```
+
+The program assumes:
+
+* One variable: `X`
+* Nonnegative integer powers
+* Polynomial factors
+* Standard computer algebra style input
+
+---
+
+# Computer Algebra Input Format
+
+Uppercase `X` is recommended.
+
+Examples of valid polynomial syntax:
+
+```text
+X^2+X-6
+```
+
+```text
+3*X^3-5*X+2
+```
+
+```text
+(X+2)*(X-3)
+```
+
+```text
+(X+2)^2
+```
+
+```text
+(X+2)^(2)
+```
+
+```text
+3*(2*X-7)*(X+3)*(X+6)
+```
+
+Both forms:
+
+```text
+X^2
+```
+
+and:
+
+```text
+X^(2)
+```
+
+are supported where appropriate.
+
+---
+
+# How to Use `FACTOR`
+
+Enter the polynomial as a quoted string:
+
+```text
+"X^2+X-6"
+```
+
+Press **ENTER**.
+
+The string is now stored in `Ans`.
+
+Run:
+
+```text
+prgmFACTOR
+```
+
+The program displays:
+
+```text
+(X-2)*(X+3)
+```
+
+The resulting string is also left in `Ans`.
+
+---
+
+# `FACTOR` Examples
+
+## Example 1 — Simple Difference of Squares
+
+### Input
+
+Mathematically:
+
+$$x^2-9$$
+
+Computer algebra string:
+
+```text
+"X^2-9"
+```
+
+Run:
+
+```text
+prgmFACTOR
+```
+
+### Output
+
+Mathematically:
+
+$$(x-3)(x+3)$$
+
+Computer algebra format:
+
+```text
+(X-3)*(X+3)
+```
+
+---
+
+## Example 2 — Quadratic Trinomial
+
+### Input
+
+Mathematically:
+
+$$x^2+x-6$$
+
+Computer algebra string:
+
+```text
+"X^2+X-6"
+```
+
+Run:
+
+```text
+prgmFACTOR
+```
+
+### Output
+
+Mathematically:
+
+$$(x-2)(x+3)$$
+
+Computer algebra format:
+
+```text
+(X-2)*(X+3)
+```
+
+---
+
+## Example 3 — Cubic With a Common Coefficient
+
+### Input
+
+Mathematically:
+
+$$6x^3+33x^2-81x-378$$
+
+Computer algebra string:
+
+```text
+"6*X^3+33*X^2-81*X-378"
+```
+
+Run:
+
+```text
+prgmFACTOR
+```
+
+### Output
+
+Mathematically:
+
+$$3(2x-7)(x+3)(x+6)$$
+
+Computer algebra format:
+
+```text
+3*(2*X-7)*(X+3)*(X+6)
+```
+
+The order of equivalent factors may vary without changing the mathematical result.
+
+---
+
+# How to Use `EXPAND`
+
+Enter the factored polynomial as a quoted string:
+
+```text
+"(X+2)*(X-3)"
+```
+
+Press **ENTER**.
+
+The string is now stored in `Ans`.
+
+Run:
+
+```text
+prgmEXPAND
+```
+
+The expanded polynomial is displayed and left in `Ans`.
+
+---
+
+# `EXPAND` Examples
+
+## Example 1 — Two Linear Factors
+
+### Input
+
+Mathematically:
+
+$$(x+2)(x-3)$$
+
+Computer algebra string:
+
+```text
+"(X+2)*(X-3)"
+```
+
+Run:
+
+```text
+prgmEXPAND
+```
+
+### Output
+
+Mathematically:
+
+$$x^2-x-6$$
+
+Computer algebra format:
+
+```text
+1*X^(2)-1*X^(1)-6
+```
+
+---
+
+## Example 2 — Repeated Factor
+
+### Input
+
+Mathematically:
+
+$$(x+2)^2(x-1)$$
+
+Computer algebra string:
+
+```text
+"(X+2)^2*(X-1)"
+```
+
+Run:
+
+```text
+prgmEXPAND
+```
+
+### Output
+
+Mathematically:
+
+$$x^3+3x^2-4$$
+
+Computer algebra format:
+
+```text
+1*X^(3)+3*X^(2)-4
+```
+
+---
+
+## Example 3 — Multiple Factors and Scalar Coefficient
+
+### Input
+
+Mathematically:
+
+$$3(2x-7)(x+3)(x+6)$$
+
+Computer algebra string:
+
+```text
+"3*(2*X-7)*(X+3)*(X+6)"
+```
+
+Run:
+
+```text
+prgmEXPAND
+```
+
+### Output
+
+Mathematically:
+
+$$6x^3+33x^2-81x-378$$
+
+Computer algebra format:
+
+```text
+6*X^(3)+33*X^(2)-81*X^(1)-378
+```
+
+---
+
+# Using `FACTOR` and `EXPAND` Together
+
+Because both programs accept and return computer algebra formatted strings, they can be used together.
+
+For example:
+
+```text
+"X^2+X-6"
+```
+
+Run:
+
+```text
+prgmFACTOR
+```
+
+Result:
+
+```text
+(X-2)*(X+3)
+```
+
+Then immediately run:
+
+```text
+prgmEXPAND
+```
+
+Result:
+
+```text
+1*X^(2)+1*X^(1)-6
+```
+
+Mathematically:
+
+$$x^2+x-6$$
+
+$$\downarrow\ \text{FACTOR}$$
+
+$$(x-2)(x+3)$$
+
+$$\downarrow\ \text{EXPAND}$$
+
+$$x^2+x-6$$
+
+This makes the programs useful both for performing polynomial operations and for checking algebraic work on the TI-84 Evo.
+
+---
+
+# Project Scope
+
+`FACTOR` and `EXPAND` are intentionally focused programs rather than replacements for a CAS calculator.
+
+Their purpose is to provide useful polynomial factoring and expansion capabilities for the TI-84 Evo within the scope of ordinary Algebra through Calculus II coursework, while keeping the implementation entirely in TI-BASIC.
