@@ -1,0 +1,176 @@
+Ans→Str0
+"CLEAN INPUT STRING"
+""→Str6
+For(I,1,length(Str0))
+sub(Str0,I,1)→Str3
+If Str3≠" "
+Str6+Str3→Str6
+End
+Str6+"*"→Str0
+"START WITH POLY 1"
+{1}→L₁
+"PARSE AND MULTIPLY"
+1→I
+While I<length(Str0)
+If sub(Str0,I,1)="*"
+Then
+I+1→I
+Else
+If sub(Str0,I,1)="("
+Then
+1→D
+I+1→S
+I+1→J
+While D>0
+sub(Str0,J,1)→Str3
+If Str3="("
+D+1→D
+If Str3=")"
+D-1→D
+J+1→J
+End
+sub(Str0,S,J-S-1)→Str1
+J→I
+Else
+I→S
+While sub(Str0,I,1)≠"*" and sub(Str0,I,1)≠"("
+I+1→I
+End
+sub(Str0,S,I-S)→Str1
+End
+1→P
+If sub(Str0,I,1)="^"
+Then
+I+1→I
+If sub(Str0,I,1)="("
+Then
+inString(Str0,")",I+1)→J
+expr(sub(Str0,I+1,J-I-1))→P
+J+1→I
+Else
+I→S
+While sub(Str0,I,1)≠"*" and sub(Str0,I,1)≠"("
+I+1→I
+End
+expr(sub(Str0,S,I-S))→P
+End
+End
+""→Str5
+For(J,1,length(Str1))
+sub(Str1,J,1)→Str3
+If Str3≠"*" and Str3≠"(" and Str3≠")" and Str3≠" "
+Str5+Str3→Str5
+End
+If sub(Str5,1,1)≠"+" and sub(Str5,1,1)≠"-"
+"+"+Str5→Str5
+Str5+"+"→Str5
+{0}→L₂
+1→J
+While J<length(Str5)
+J→S
+J+1→J
+While sub(Str5,J,1)≠"+" and sub(Str5,J,1)≠"-"
+J+1→J
+End
+sub(Str5,S,J-S)→Str2
+inString(Str2,"X")→K
+If K=0
+Then
+If sub(Str2,1,1)="-"
+Then
+0-expr(sub(Str2,2,length(Str2)-1))→C
+Else
+If sub(Str2,1,1)="+"
+Then
+expr(sub(Str2,2,length(Str2)-1))→C
+Else
+expr(Str2)→C
+End
+End
+0→Q
+Else
+sub(Str2,1,K-1)→Str6
+If Str6="+"
+Then
+1→C
+Else
+If Str6="-"
+Then
+0-1→C
+Else
+If sub(Str6,1,1)="-"
+Then
+0-expr(sub(Str6,2,length(Str6)-1))→C
+Else
+If sub(Str6,1,1)="+"
+Then
+expr(sub(Str6,2,length(Str6)-1))→C
+Else
+expr(Str6)→C
+End
+End
+End
+End
+inString(Str2,"^")→D
+If D=0
+Then
+1→Q
+Else
+expr(sub(Str2,D+1,length(Str2)-D))→Q
+End
+End
+If Q+1>dim(L₂)
+Q+1→dim(L₂)
+L₂(Q+1)+C→L₂(Q+1)
+End
+If P>0
+Then
+For(K,1,P)
+dim(L₁)→N
+dim(L₂)→M
+seq(0,Z,1,N+M-1)→L₃
+For(A,1,N)
+For(B,1,M)
+L₃(A+B-1)+L₁(A)*L₂(B)→L₃(A+B-1)
+End
+End
+L₃→L₁
+End
+End
+End
+End
+"TRIM HIGH ZERO TERMS"
+While dim(L₁)>1 and L₁(dim(L₁))=0
+dim(L₁)-1→dim(L₁)
+End
+"BUILD EXPANDED STRING"
+""→Str4
+For(I,dim(L₁),1,0-1)
+L₁(I)→C
+I-1→D
+If C≠0
+Then
+If length(Str4)>0
+Then
+If C>0
+Str4+"+"→Str4
+If C<0
+Str4+"-"→Str4
+Else
+If C<0
+"-"→Str4
+End
+abs(C)→C
+If D>0
+Then
+Str4+toString(C)+"*X^("+toString(D)+")"→Str4
+Else
+Str4+toString(C)→Str4
+End
+End
+End
+If length(Str4)=0
+"0"→Str4
+"RETURN EXPANDED FORM"
+Str4
+Disp Ans

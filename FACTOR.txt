@@ -1,0 +1,340 @@
+Ans→Str0
+"CLEAN INPUT STRING"
+""→Str1
+For(I,1,length(Str0))
+sub(Str0,I,1)→Str3
+If Str3≠" " and Str3≠"*" and Str3≠"(" and Str3≠")"
+Str1+Str3→Str1
+End
+If sub(Str1,1,1)≠"+" and sub(Str1,1,1)≠"-"
+"+"+Str1→Str1
+Str1+"+"→Str1
+"PARSE POLYNOMIAL"
+{0}→L₁
+1→I
+While I<length(Str1)
+I→S
+I+1→I
+While sub(Str1,I,1)≠"+" and sub(Str1,I,1)≠"-"
+I+1→I
+End
+sub(Str1,S,I-S)→Str2
+inString(Str2,"X")→J
+If J=0
+Then
+If sub(Str2,1,1)="-"
+Then
+0-expr(sub(Str2,2,length(Str2)-1))→C
+Else
+If sub(Str2,1,1)="+"
+Then
+expr(sub(Str2,2,length(Str2)-1))→C
+Else
+expr(Str2)→C
+End
+End
+0→D
+Else
+sub(Str2,1,J-1)→Str3
+If Str3="+"
+Then
+1→C
+Else
+If Str3="-"
+Then
+0-1→C
+Else
+If sub(Str3,1,1)="-"
+Then
+0-expr(sub(Str3,2,length(Str3)-1))→C
+Else
+If sub(Str3,1,1)="+"
+Then
+expr(sub(Str3,2,length(Str3)-1))→C
+Else
+expr(Str3)→C
+End
+End
+End
+End
+inString(Str2,"^")→K
+If K=0
+Then
+1→D
+Else
+expr(sub(Str2,K+1,length(Str2)-K))→D
+End
+End
+If D+1>dim(L₁)
+D+1→dim(L₁)
+L₁(D+1)+C→L₁(D+1)
+End
+While dim(L₁)>1 and L₁(dim(L₁))=0
+dim(L₁)-1→dim(L₁)
+End
+"ORDER COEFFICIENTS"
+dim(L₁)→N
+seq(L₁(N-I+1),I,1,N)→L₆
+L₆→L₁
+"FACTOR COEFF GCD"
+abs(L₁(1))→E
+For(I,2,dim(L₁))
+gcd(E,abs(L₁(I)))→E
+End
+If E=0
+1→E
+If E>1
+Then
+For(I,1,dim(L₁))
+L₁(I)/E→L₁(I)
+End
+End
+"INIT FACTOR LISTS"
+{0}→L₂
+{0}→L₃
+{0}→L₄
+{0}→L₅
+{0}→L₆
+0→U
+0→V
+0→M
+"FACTOR POWERS OF X"
+While dim(L₁)>1 and L₁(dim(L₁))=0
+M+1→M
+dim(L₁)-1→dim(L₁)
+End
+If M>0
+Then
+1→U
+0→L₂(1)
+M→L₃(1)
+End
+"FIND INTEGER ROOTS"
+If dim(L₁)>1
+Then
+abs(L₁(dim(L₁)))→C
+For(R,0-C,C)
+If R≠0
+Then
+If remainder(C,abs(R))=0
+Then
+0→M
+1→F
+While F=1 and dim(L₁)>1
+L₁(1)→A
+For(I,2,dim(L₁))
+A*R+L₁(I)→A
+End
+If A=0
+Then
+M+1→M
+If dim(L₁)>2
+Then
+For(I,2,dim(L₁)-1)
+L₁(I)+R*L₁(I-1)→L₁(I)
+End
+End
+dim(L₁)-1→dim(L₁)
+If dim(L₁)>1
+Then
+abs(L₁(dim(L₁)))→C
+Else
+0→F
+End
+Else
+0→F
+End
+End
+If M>0
+Then
+U+1→U
+U→dim(L₂)
+U→dim(L₃)
+R→L₂(U)
+M→L₃(U)
+End
+End
+End
+End
+End
+"FIND QUADRATIC FACTORS"
+If dim(L₁)≥3
+Then
+abs(L₁(dim(L₁)))→C
+For(Q,1,C)
+If remainder(C,Q)=0
+Then
+For(P,0-5,5)
+If P^2-4*Q<0
+Then
+0→M
+1→F
+While F=1 and dim(L₁)≥3
+dim(L₁)→N
+0→A
+0→B
+For(I,1,N-2)
+L₁(I)-P*B-Q*A→D
+B→A
+D→B
+End
+L₁(N-1)-P*B-Q*A→G
+L₁(N)-Q*B→H
+If G=0 and H=0
+Then
+0→A
+0→B
+For(I,1,N-2)
+L₁(I)-P*B-Q*A→D
+D→L₁(I)
+B→A
+D→B
+End
+N-2→dim(L₁)
+M+1→M
+If dim(L₁)>1
+Then
+abs(L₁(dim(L₁)))→C
+Else
+0→F
+End
+Else
+0→F
+End
+End
+If M>0
+Then
+V+1→V
+V→dim(L₄)
+V→dim(L₅)
+V→dim(L₆)
+P→L₄(V)
+Q→L₅(V)
+M→L₆(V)
+End
+End
+End
+End
+End
+End
+"BUILD RESULT STRING"
+""→Str4
+If dim(L₁)>1
+Then
+""→Str5
+dim(L₁)→N
+For(I,1,N)
+L₁(I)→A
+N-I→D
+If A≠0
+Then
+If length(Str5)>0
+Then
+If A>0
+Str5+"+"→Str5
+If A<0
+Str5+"-"→Str5
+Else
+If A<0
+"-"→Str5
+End
+abs(A)→B
+If D=0
+Then
+Str5+toString(B)→Str5
+Else
+If B≠1
+Str5+toString(B)+"*"→Str5
+If D=1
+Str5+"X"→Str5
+If D>1
+Str5+"X^("+toString(D)+")"→Str5
+End
+End
+End
+"("+Str5+")"→Str4
+End
+"ADD QUADRATIC FACTORS"
+For(I,1,V)
+"X^(2)"→Str5
+L₄(I)→P
+L₅(I)→Q
+If P>0
+Then
+If P=1
+Then
+Str5+"+X"→Str5
+Else
+Str5+"+"+toString(P)+"*X"→Str5
+End
+End
+If P<0
+Then
+If P=0-1
+Then
+Str5+"-X"→Str5
+Else
+Str5+"-"+toString(0-P)+"*X"→Str5
+End
+End
+If Q>0
+Str5+"+"+toString(Q)→Str5
+If Q<0
+Str5+toString(Q)→Str5
+"("+Str5+")"→Str5
+If L₆(I)>1
+Str5+"^("+toString(L₆(I))+")"→Str5
+If length(Str4)>0
+Str4+"*"→Str4
+Str4+Str5→Str4
+End
+"ADD LINEAR FACTORS"
+For(I,1,U)
+L₂(I)→R
+If R=0
+Then
+"X"→Str5
+Else
+If R>0
+Then
+"X-"+toString(R)→Str5
+Else
+"X+"+toString(0-R)→Str5
+End
+End
+"("+Str5+")"→Str5
+If L₃(I)>1
+Str5+"^("+toString(L₃(I))+")"→Str5
+If length(Str4)>0
+Str4+"*"→Str4
+Str4+Str5→Str4
+End
+"ADD REMAINING COEFF"
+If dim(L₁)=1
+Then
+L₁(1)→A
+If A≠1
+Then
+If length(Str4)>0
+Then
+toString(A)+"*"+Str4→Str4
+Else
+toString(A)→Str4
+End
+End
+End
+"RESTORE COMMON GCD"
+If E>1
+Then
+If length(Str4)>0
+Then
+toString(E)+"*"+Str4→Str4
+Else
+toString(E)→Str4
+End
+End
+If length(Str4)=0
+"1"→Str4
+"RETURN FACTORED FORM"
+Str4
+Disp Ans
