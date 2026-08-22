@@ -16,6 +16,8 @@ These programs are intended to provide convenient polynomial manipulation on the
 
 <h2>To Install on TI-84 Evo:</h2>
 
+use the `.8xp2` files
+
 Online Calculator
   - [https://ti84evo.ti.com/84evo/en/main-view](https://ti84evo.ti.com/84evo/en/main-view)
   - Use "Send Files" - "send to calculator" to send a program file on computer to a the emulator calculator.
@@ -27,6 +29,8 @@ Connect to Physical Calculator
   - Use "send to computer" to copy a program from the physical connected calculator to your computer files.
 
 <h2>To Install on TI-84 CE/CE Plus:</h2>
+
+use the `.8xp` files
 
 Online Calculator (login realityexpander)
   - [https://ti84evo.ti.com/84evo/en/main-view](https://84plusce.ti.com/8eu/main-view)
