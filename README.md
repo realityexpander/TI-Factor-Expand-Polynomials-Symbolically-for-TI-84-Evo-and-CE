@@ -92,7 +92,7 @@ For example:
 is expanded to:
 
 ```text
-6*X^(3)+33*X^(2)-81*X^(1)-378
+6*X^(3)+33*X^(2)-81*X-378
 ```
 
 Mathematically:
