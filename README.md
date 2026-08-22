@@ -69,7 +69,7 @@ $$3(2x-7)(x+3)(x+6)$$
 
 The `FACTOR` program:
 
-* Parses a polynomial stored as a string.
+* Uses the expression string stored in `Ans` and parses it as a polynomial expression.
 * Converts the expression into polynomial coefficients.
 * Extracts the greatest common integer factor of the coefficients.
 * Detects factors of (x).
@@ -109,7 +109,7 @@ $$6x^3+33x^2-81x-378$$
 
 The program:
 
-* Parses polynomial factors from a string.
+* Uses the expression string stored in `Ans` and parses it as a polynomial expression.
 * Recognizes parenthesized factors.
 * Recognizes repeated factors such as `(X+2)^2`.
 * Converts each factor into a coefficient list.
