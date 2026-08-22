@@ -563,7 +563,7 @@ prgmEXPAND
 Result:
 
 ```text
-X^(2)+1*X-6
+X^(2)+X-6
 ```
 
 Mathematically:
