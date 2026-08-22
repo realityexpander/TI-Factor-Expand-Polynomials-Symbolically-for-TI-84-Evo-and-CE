@@ -121,8 +121,7 @@ The program:
 
 These programs are designed for polynomial problems commonly encountered in:
 
-* Pre-Algebra
-* Algebra
+* Algebra 1 & 2
 * College Algebra
 * Precalculus
 * Calculus I
@@ -138,15 +137,15 @@ They are especially useful for checking algebra involved in:
 * Limits
 * Derivatives
 * Integrals
-* Partial-fraction preparation
+* Partial-fraction decompisiton preparation
 
-The goal is **not** to reproduce a complete CAS system. Instead, the programs provide focused polynomial functionality appropriate for standard undergraduate mathematics coursework.
+The goal is **NOT** to reproduce a complete CAS system. Instead, the programs provide focused polynomial functionality appropriate for standard undergraduate mathematics coursework using integer polynomial coefficients and constants.
 
 ---
 
 # Known Limitations
 
-These programs intentionally support a limited subset of computer algebra syntax.
+These programs intentionally support a limited subset of computer algebra syntax that is found in standard high school and undergraduate math courses.
 
 ## `FACTOR` limitations
 
