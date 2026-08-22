@@ -1,11 +1,12 @@
 Ans→Str0
 "CLEAN INPUT STRING"
-""→Str1
+" "→Str1
 For(I,1,length(Str0))
 sub(Str0,I,1)→Str3
 If Str3≠" " and Str3≠"*" and Str3≠"(" and Str3≠")"
 Str1+Str3→Str1
 End
+sub(Str1,2,length(Str1)-1)→Str1
 If sub(Str1,1,1)≠"+" and sub(Str1,1,1)≠"-"
 "+"+Str1→Str1
 Str1+"+"→Str1
@@ -221,14 +222,14 @@ End
 ""→Str4
 If dim(L₁)>1
 Then
-""→Str5
+" "→Str5
 dim(L₁)→N
 For(I,1,N)
 L₁(I)→A
 N-I→D
 If A≠0
 Then
-If length(Str5)>0
+If length(Str5)>1
 Then
 If A>0
 Str5+"+"→Str5
@@ -236,7 +237,7 @@ If A<0
 Str5+"-"→Str5
 Else
 If A<0
-"-"→Str5
+Str5+"-"→Str5
 End
 abs(A)→B
 If D=0
@@ -252,6 +253,7 @@ Str5+"X^("+toString(D)+")"→Str5
 End
 End
 End
+sub(Str5,2,length(Str5)-1)→Str5
 "("+Str5+")"→Str4
 End
 "ADD QUADRATIC FACTORS"
@@ -285,8 +287,11 @@ Str5+toString(Q)→Str5
 If L₆(I)>1
 Str5+"^("+toString(L₆(I))+")"→Str5
 If length(Str4)>0
-Str4+"*"→Str4
-Str4+Str5→Str4
+Then
+Str4+"*"+Str5→Str4
+Else
+Str5→Str4
+End
 End
 "ADD LINEAR FACTORS"
 For(I,1,U)
@@ -306,8 +311,11 @@ End
 If L₃(I)>1
 Str5+"^("+toString(L₃(I))+")"→Str5
 If length(Str4)>0
-Str4+"*"→Str4
-Str4+Str5→Str4
+Then
+Str4+"*"+Str5→Str4
+Else
+Str5→Str4
+End
 End
 "ADD REMAINING COEFF"
 If dim(L₁)=1

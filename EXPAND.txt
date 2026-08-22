@@ -1,11 +1,12 @@
 Ans→Str0
 "CLEAN INPUT STRING"
-""→Str6
+" "→Str6
 For(I,1,length(Str0))
 sub(Str0,I,1)→Str3
 If Str3≠" "
 Str6+Str3→Str6
 End
+sub(Str6,2,length(Str6)-1)→Str6
 Str6+"*"→Str0
 "START WITH POLY 1"
 {1}→L₁
@@ -55,12 +56,13 @@ End
 expr(sub(Str0,S,I-S))→P
 End
 End
-""→Str5
+" "→Str5
 For(J,1,length(Str1))
 sub(Str1,J,1)→Str3
 If Str3≠"*" and Str3≠"(" and Str3≠")" and Str3≠" "
 Str5+Str3→Str5
 End
+sub(Str5,2,length(Str5)-1)→Str5
 If sub(Str5,1,1)≠"+" and sub(Str5,1,1)≠"-"
 "+"+Str5→Str5
 Str5+"+"→Str5
@@ -150,29 +152,43 @@ L₁(I)→C
 I-1→D
 If C≠0
 Then
-If length(Str4)>0
+abs(C)→A
+If D=0
 Then
-If C>0
-Str4+"+"→Str4
-If C<0
-Str4+"-"→Str4
+toString(A)→Str5
 Else
-If C<0
-"-"→Str4
-End
-abs(C)→C
-If D>0
-Then
-If C≠1
-Str4+toString(C)+"*"→Str4
 If D=1
 Then
-Str4+"X"→Str4
+If A=1
+Then
+"X"→Str5
 Else
-Str4+"X^("+toString(D)+")"→Str4
+toString(A)+"*X"→Str5
 End
 Else
-Str4+toString(C)→Str4
+If A=1
+Then
+"X^("+toString(D)+")"→Str5
+Else
+toString(A)+"*X^("+toString(D)+")"→Str5
+End
+End
+End
+If length(Str4)=0
+Then
+If C<0
+Then
+"-"+Str5→Str4
+Else
+Str5→Str4
+End
+Else
+If C<0
+Then
+Str4+"-"+Str5→Str4
+Else
+Str4+"+"+Str5→Str4
+End
 End
 End
 End
