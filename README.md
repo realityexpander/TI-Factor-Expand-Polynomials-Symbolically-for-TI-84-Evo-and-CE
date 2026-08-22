@@ -141,7 +141,7 @@ They are especially useful for checking algebra involved in:
 * Limits
 * Derivatives
 * Integrals
-* Partial-fraction decompisiton preparation
+* Partial-fraction decompositon preparation
 
 The goal is **NOT** to reproduce a complete CAS system. Instead, the programs provide focused polynomial functionality appropriate for standard undergraduate mathematics coursework using integer polynomial coefficients and constants.
 
