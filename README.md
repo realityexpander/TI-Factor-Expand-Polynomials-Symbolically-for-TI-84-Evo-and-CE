@@ -1,11 +1,11 @@
 # `FACTOR` and `EXPAND` Polynomials Symbolically 
-## For TI-84 Evo & CE/CE-Plus Calculators
+## For TI-84 Evo & CE/Plus-CE Calculators
 
 <img width="324" height="244" alt="image" src="https://github.com/user-attachments/assets/4692e3d8-ed55-4a53-ab7e-8e84b51b9b7f" />
 
 TI-BASIC calculator programs that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings. Useful for performing coursework in college level algebra, pre-calculus, calculus 1 & 2. Provides some CAS level functionality for non-CAS calculators that are allowed to be used in these courses to check your work.
 
-The repository contains two standalone programs for both TI-84 Evo and CE/CE-Plus calculators:
+The repository contains two standalone programs for both TI-84 Evo and CE/Plus-CE calculators:
 
 * **`FACTOR`** — factors an expanded polynomial expression.
 * **`EXPAND`** — expands products and powers of polynomial factors.
@@ -28,7 +28,7 @@ Connect to Physical Calculator
   - Use "send to calculator" to send a program file to a physically connected calculator.
   - Use "send to computer" to copy a program from the physical connected calculator to your computer files.
 
-<h2>To Install on TI-84 CE/CE Plus:</h2>
+<h2>To Install on TI-84 CE/Plus CE:</h2>
 
 use the `.8xp` files
 
