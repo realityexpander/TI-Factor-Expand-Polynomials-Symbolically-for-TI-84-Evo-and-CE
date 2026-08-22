@@ -457,7 +457,7 @@ $$x^2-x-6$$
 Computer algebra format:
 
 ```text
-1*X^(2)-1*X^(1)-6
+X^(2)-X-6
 ```
 
 ---
@@ -491,7 +491,7 @@ $$x^3+3x^2-4$$
 Computer algebra format:
 
 ```text
-1*X^(3)+3*X^(2)-4
+X^(3)+3*X^(2)-4
 ```
 
 ---
@@ -525,7 +525,7 @@ $$6x^3+33x^2-81x-378$$
 Computer algebra format:
 
 ```text
-6*X^(3)+33*X^(2)-81*X^(1)-378
+6*X^(3)+33*X^(2)-81*X-378
 ```
 
 ---
@@ -561,7 +561,7 @@ prgmEXPAND
 Result:
 
 ```text
-1*X^(2)+1*X^(1)-6
+X^(2)+1*X-6
 ```
 
 Mathematically:
