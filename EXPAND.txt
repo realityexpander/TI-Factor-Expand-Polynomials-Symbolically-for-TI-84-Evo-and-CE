@@ -163,7 +163,14 @@ End
 abs(C)→C
 If D>0
 Then
-Str4+toString(C)+"*X^("+toString(D)+")"→Str4
+If C≠1
+Str4+toString(C)+"*"→Str4
+If D=1
+Then
+Str4+"X"→Str4
+Else
+Str4+"X^("+toString(D)+")"→Str4
+End
 Else
 Str4+toString(C)→Str4
 End
