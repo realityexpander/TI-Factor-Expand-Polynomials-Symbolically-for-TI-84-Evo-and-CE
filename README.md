@@ -5,7 +5,7 @@
 
 TI-BASIC calculator programs that provide lightweight polynomial factoring and expansion using computer-algebra-style expression strings. Useful for performing coursework in college level algebra, pre-calculus, calculus 1 & 2. Provides some CAS level functionality for non-CAS calculators that are allowed to be used in these courses to check your work.
 
-The repository contains two standalone programs for both TI-84 Evo and CE calculators:
+The repository contains two standalone programs for both TI-84 Evo and CE/CE-Plus calculators:
 
 * **`FACTOR`** — factors an expanded polynomial expression.
 * **`EXPAND`** — expands products and powers of polynomial factors.
