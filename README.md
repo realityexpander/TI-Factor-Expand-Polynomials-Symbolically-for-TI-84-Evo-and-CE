@@ -26,7 +26,7 @@ Connect to Physical Calculator
   - Use "send to calculator" to send a program file to a physically connected calculator.
   - Use "send to computer" to copy a program from the physical connected calculator to your computer files.
 
-<h2>To Install on TI-84 CE Plus:</h2>
+<h2>To Install on TI-84 CE/CE Plus:</h2>
 
 Online Calculator (login realityexpander)
   - [https://ti84evo.ti.com/84evo/en/main-view](https://84plusce.ti.com/8eu/main-view)
